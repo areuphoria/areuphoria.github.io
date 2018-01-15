@@ -1,0 +1,574 @@
+/*
+* {
+    box-sizing: border-box;
+    font-family: 'Encode Sans', sans-serif;
+    border: 0px solid rgba(255, 255, 255, 1);
+    color: black;
+    margin: 0px;
+}
+
+
+*/
+
+html {
+
+    background-size: cover;
+}
+
+/*
+========================
+Header Column 
+========================
+
+
+#headColumn {
+    background: rgba(175, 49, 49, 0.8);
+    height: 100%;
+    max-width: 300px;
+    min-width: 100px;
+    width: auto;
+    display: inline-block;
+    float: left;
+    position: fixed;
+}
+
+#headPicture {
+    width: 250px;
+    height: 250px;
+    background-color: firebrick;
+    margin: 25px 25px 25px 25px;
+    display: inline-block;
+    background-image: url(""), none;
+    background-size: 300px 300px;
+    background-position: -25px -25px;
+    -webkit-box-shadow: -2px -0px 25px black;
+    -moz-box-shadow: -2px -0px 25px black;
+    box-shadow: -2px -0px 25px black;
+}
+
+#name {
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    font-size: 30px;
+    font-style: bold;
+}
+
+#description {
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+}
+
+#dock {
+    padding: 20px;
+    position: relative;
+}
+
+.dockIcon {
+    margin: auto;
+    position: relative;
+    height="20";
+    width="20";
+    grid-area: center center;
+}
+
+*/
+
+/*
+========================
+Sidebar
+========================
+
+
+#sideBar {
+    float: left;
+    /*    blue*/
+
+background: rgba(20, 20, 20, 0.90);
+height: 100%;
+width: 100px;
+position: fixed;
+margin-left: 300px;
+-webkit-box-shadow: -2px -0px 25px black;
+-moz-box-shadow: -2px -0px 25px black;
+box-shadow: -2px -0px 25px black;
+}
+
+.sideBarIcon {
+    width: 100px;
+    height: 100px;
+    background: blue;
+    border-radius: 10px;
+    margin: auto;
+    position: relative;
+    top: 20%;
+    z-index: 99999;
+}
+
+*/
+/* =============================================================================
+  ICONS - DEMO 4
+============================================================================= 
+
+http://callmenick.com/post/nicer-icon-hover-effects-with-css3-transitions*/
+
+/**
+ * "icon-border" class name used to indicate an icon that has an animated border
+ * effect.
+ *
+ * Example HTML:
+ *
+ * <a href="#" class="icon icon-border facebook">facebook</a>
+ * <a href="#" class="icon icon-border twitter">twitter</a>
+ * ...
+ */
+
+.icon-border {
+    position: relative;
+    top: 20%;
+    width: 100px;
+    height: 100px;
+    display: block;
+}
+
+.icon-border::before,
+.icon-border::after {
+    display: inline;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    content: "";
+}
+
+.icon-border::before {
+    z-index: 1;
+    -webkit-transition: box-shadow 0.3s;
+    -moz-transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s;
+}
+
+.icon-border::after {
+    z-index: 2;
+    background: url("Assets/sidebarSpritesheet.png");
+    background-image: url("Assets/sidebarSpritesheet.png"), none;
+}
+
+
+/* aboutMe */
+
+.icon-border.aboutMe::before {
+    box-shadow: inset 0 0 0 50px #3b81de;
+    z-index: 99999;
+}
+
+.icon-border.aboutMe:hover::before {
+    box-shadow: inset 0 0 0 4px #3b81de;
+    z-index: 99999;
+}
+
+.icon-border.aboutMe::after {
+    background-position: 0 0;
+    z-index: 99999;
+}
+
+.aboutMe > .overlay {
+    background-color: #3b81de;
+    z-index: 99999;
+}
+
+
+/* projects */
+
+.icon-border.projects::before {
+    /* edge to center of box  = 50px
+	sets div's SHADOW's width to 50 and a color*/
+    box-shadow: inset 0 0 0 50px #ee802f;
+    z-index: 99999;
+}
+
+.icon-border.projects:hover::before {
+    /*border becomes a width of 4*/
+    box-shadow: inset 0 0 0 4px #ee802f;
+    z-index: 99999;
+}
+
+.icon-border.projects::after {
+    background-position: -200px 0;
+    z-index: 99999;
+}
+
+.projects > .overlay {
+    background-color: #ee802f;
+    z-index: 99999;
+}
+
+
+/* conceptArt */
+
+.icon-border.conceptArt::before {
+    box-shadow: inset 0 0 0 50px #34d100;
+    z-index: 99999;
+}
+
+.icon-border.conceptArt:hover::before {
+    box-shadow: inset 0 0 0 4px #34d100;
+    z-index: 99999;
+}
+
+.icon-border.conceptArt::after {
+    background-position: -100px 0;
+    z-index: 99999;
+}
+
+.conceptArt > .overlay {
+    background-color: #34d100;
+    z-index: 99999;
+}
+
+
+/*
+=======================
+Slide out title on hover
+=======================
+*/
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    transition: .3s ease;
+    left: 100px;
+}
+
+.container:hover .overlay {
+    width: 120%;
+    -webkit-box-shadow: inset 10px 0px 25px -5px black;
+    -moz-box-shadow: inset 10px 0px 25px -5px black;
+    box-shadow: inset 10px 0px 25px -5px black;
+}
+
+.text {
+    white-space: nowrap;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.contentArea {
+    float: left;
+    width: 100%;
+    height: 100%;
+    /*    Change height to 100% later*/
+    /*margin-left: 400px;*/
+}
+
+#aboutMeContent {
+    padding: 50px;
+    padding-top: 100px;
+    height: auto;
+}
+
+#projectsContent {
+    /*    padding: 50px;*/
+    padding: 50px;
+
+    height: auto;
+}
+
+#conceptArtContent {
+    padding: 50px;
+
+    height: auto;
+}
+
+.card:hover .langDock {
+    text-align: center;
+    margin-top 50px;
+    padding: 10px;
+    border-width: 5px;
+    top: 175px;
+    left: 200px;
+    position: relative;
+    color: white;
+}
+
+.td {
+    margin: 20px;
+    border: 20px;
+}
+
+.langTag {
+    color: white;
+}
+
+.TagCSharp {
+    background: rgba(152, 49, 180, 1);
+    border-radius: 3px;
+    width: auto;
+    margin: auto;
+    position: relative;
+    grid-area: center center;
+}
+
+.TagXAML {
+    background: rgba(15, 137, 246, 1);
+    border-radius: 3px;
+    padding: 2px;
+    width: auto;
+}
+
+.TagVStudio {
+    background: rgba(103, 33, 122, 1);
+    border-radius: 3px;
+    padding: 2px;
+    width: auto;
+}
+
+.TagHTML {
+    background: rgba(241, 101, 41, 1);
+    border-radius: 3px;
+    padding: 2px;
+    width: auto;
+}
+
+.TagCSS {
+    background: rgba(103, 33, 122, 1);
+    border-radius: 3px;
+    padding: 2px;
+    width: auto;
+}
+
+.TagJava {
+    background: rgba(103, 33, 122, 1);
+    border-radius: 3px;
+    padding: 2px;
+    width: auto;
+}
+
+
+.dropshadow {
+    filter: drop-shadow(0px 0px 5px black);
+}
+
+
+
+
+
+
+
+.transition {
+    transition: .3s cubic-bezier(.3, 0, 0, 1.3)
+}
+
+.card {
+    background-color: #fff;
+    bottom: 0;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
+    height: 300px;
+    left: 0;
+    margin: auto;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 300px;
+}
+
+.card:hover {
+    height: 450px;
+    width: 400px;
+}
+
+.card:hover .cta-container {
+    display: inline;
+    margin-top: 380px;
+}
+
+/* EDIT THIS */
+.card:hover .card_circle {
+    background-size: cover;
+    border-radius: 0;
+    margin-top: -130px;
+}
+.card:hover .card_circle_1 {
+    background-size: cover;
+    border-radius: 0;
+    margin-top: -130px;
+}
+.card:hover .card_circle_2 {
+    background-size: cover;
+    border-radius: 0;
+    margin-top: -130px;
+}
+.card:hover .card_circle_3 {
+    background-size: cover;
+    border-radius: 0;
+    margin-top: -130px;
+}
+.card:hover .card_circle_4 {
+    background-size: cover;
+    border-radius: 0;
+    margin-top: -130px;
+}
+
+
+.card:hover h2 {
+    background: #3487f7;
+    color: #fff;
+    margin-top: 100px;
+    padding: 5px;
+}
+
+.card:hover h2 small {
+    color: #fff
+}
+
+.card:hover p {
+    margin-top: 300px
+}
+
+
+/* EDIT THIS */
+.cardBackground{
+    background: url('/Assets/headerPersonalWebsite.png') no-repeat center bottom;
+    background-color: #3487f7;
+    background-size: cover;
+}
+.card_circle {
+    background: url('http://lorempixel.com/400/200') no-repeat center bottom;
+    background-color: #3487f7;
+    background-size: cover;
+    border-radius: 50%;
+    height: 400px;
+    margin-left: -100px;
+    margin-top: -270px;
+    position: absolute;
+    width: 500px;
+}
+.card_circle_1{
+    background: url('Assets/PersonalWebsiteheader2.png') no-repeat center bottom;
+    background-color: #3487f7;
+    background-size: cover;
+    border-radius: 50%;
+    height: 400px;
+    margin-left: -100px;
+    margin-top: -270px;
+    position: absolute;
+    width: 500px;
+}
+.card_circle_2{
+    background: url('Assets/yahtzeeHeader.png') no-repeat center bottom;
+    background-color: #3487f7;
+    background-size: cover;
+    border-radius: 50%;
+    height: 400px;
+    margin-left: -100px;
+    margin-top: -270px;
+    position: absolute;
+    width: 500px;
+}
+.card_circle_3{
+    background: url('Assets/blackjackHeader.png') no-repeat center bottom;
+    background-color: #3487f7;
+    background-size: cover;
+    border-radius: 50%;
+    height: 400px;
+    margin-left: -100px;
+    margin-top: -270px;
+    position: absolute;
+    width: 500px;
+}
+.card_circle_4{
+    background: url('Assets/cannonBallHeader.png') no-repeat center bottom;
+    background-color: #3487f7;
+    background-size: cover;
+    border-radius: 50%;
+    height: 400px;
+    margin-left: -100px;
+    margin-top: -270px;
+    position: absolute;
+    width: 500px;
+}
+
+h2 {
+    color: #3487f7;
+    font-family: 'Raleway', sans-serif;
+    font-size: 24px;
+    font-weight: 200;
+    margin-top: 150px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 9999;
+}
+
+p {
+    color: rgba(0, 0, 0, .6);
+    font-family: 'Raleway', sans-serif;
+    font-size: 100%;
+    font-weight: normal;
+    margin-top: 200px;
+    position: absolute;
+    text-align: center;
+    z-index: 9999;
+}
+
+.cta-container {
+    display: none;
+    margin-top: 320px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 9999;
+}
+
+.cta {
+    -moz-border-radius: 2px;
+    -moz-transition: 0.2s ease-out;
+    -ms-transition: 0.2s ease-out;
+    -o-transition: 0.2s ease-out;
+    -webkit-border-radius: 2px;
+    -webkit-transition: 0.2s ease-out;
+    background-clip: padding-box;
+     /*border: 2px solid #3487f7;*/
+    border: 2px solid #000000;
+    border-radius: 2px;
+     /*color: #3487f7;*/
+    color: #000000;
+    display: inline-block;
+    font-family: 'Raleway', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    height: 36px;
+    letter-spacing: 0.5px;
+    line-height: 36px;
+    margin-bottom: 15px;
+    padding: 0 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.2s ease-out;
+}
+
+.cta:hover {
+        /*background-color: #3487f7;*/
+    background-color: #000000;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: #fff;
+    -moz-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.caro{
+    width: 100%;
+}
